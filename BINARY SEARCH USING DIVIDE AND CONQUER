@@ -1,0 +1,44 @@
+#include<stdio.h>
+main()
+{
+    int n,a[10],i,search;
+    printf("Enter the number of numbers: ");
+    scanf("%d",&n);
+    printf("Enter the elements in an array\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    printf("Enter the element to search: ");
+    scanf("%d",&search);
+    int index;
+    index=bin(a,0,n,search);
+    int x=index;
+    if(x==-1)
+        printf("not found");
+    else
+        printf("%d",x);
+
+}
+int bin(int *a,int first,int last,int search)
+{
+    if(last<first)
+        return -1;
+    else
+    {
+        int mid;
+        mid=(last+first)/2;
+        if(a[mid]==search)
+            return mid;
+        int x,y;
+        x=bin(a,first,mid-1,search);
+        y=bin(a,mid+1,last,search);
+
+        if(x==-1&&y==-1)
+            return -1;
+        else if(x==-1&&y!=-1)
+            return y;
+        else
+            return x;
+    }
+}
