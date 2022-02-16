@@ -1,0 +1,31 @@
+#include<stdio.h>
+int linear_search(int *a,int l,int h,int key)
+{
+
+    if(h==l)
+    {
+        if(key==a[l])
+            return l;
+        else
+            return -1;
+    }
+    int mid=(l+h)/2;
+    int i=linear_search(a,l,mid,key);
+    if(i==-1)
+        i=linear_search(a,mid+1,h,key);
+    return i;
+}
+main()
+{
+    int n,i,key,arr[100];
+    printf("Enter n value: ");
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("Enter the key to find: ");
+    scanf("%d",&key);
+    int x=linear_search(arr,0,n,key);
+    printf("%d",x);
+}
