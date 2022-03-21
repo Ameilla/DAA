@@ -1,0 +1,23 @@
+#include <stdio.h>
+void hanoi(char,char,char,int);
+void main()
+{
+	int num;
+  printf("\nENTER NUMBER OF DISKS: ");
+  scanf("%d",&num);
+	printf("\nyWER OF HANOI FOR %d NUMBER OF DISKS:\n", num);
+	hanoi('A','B','C',num);
+}
+void hanoi(char x,char y,char z,int n)
+{
+	if(n<=0)
+		printf("\nILLEGAL NUMBER OF DISKS");
+	if(n==1)
+		printf("\nMOVE DISK x %c to %c",x,z);
+	if(n>1)
+	{
+		hanoi(x,z,y,n-1);
+		hanoi(x,y,z,1);
+		hanoi(y,x,z,n-1);
+	}
+}
