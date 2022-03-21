@@ -13,7 +13,7 @@ void hanoi(char x,char y,char z,int n)
 	if(n<=0)
 		printf("\nILLEGAL NUMBER OF DISKS");
 	if(n==1)
-		printf("\nMOVE DISK x %c to %c",x,z);
+		printf("\nMOVE DISK  %c to %c",x,z);
 	if(n>1)
 	{
 		hanoi(x,z,y,n-1);
