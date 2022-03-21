@@ -1,0 +1,48 @@
+#include<stdio.h>
+main()
+{
+    int row,col,i,j,a[10][10],b[10][10],c[10][10];
+    printf("Enter number of rows and columns :");
+    scanf("%d",&row);
+    scanf("%d",&col);
+    printf("Enter the first matrix \n");
+    for(i=0;i<row;i++)
+    {
+        for(j=0;j<col;j++)
+        {
+            printf("a[%d][%d] ",i,j);
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("Enter the second matrix \n");
+    for(i=0;i<row;i++)
+    {
+        for(j=0;j<col;j++)
+        {
+            printf("b[%d][%d] ",i,j);
+            scanf("%d",&b[i][j]);
+        }
+    }
+    int k;
+    for(i=0;i<row;i++)
+    {
+        for(j=0;j<col;j++)
+        {
+            c[i][j]=0;
+            for(k=0;k<col;k++)
+            {
+
+                c[i][j]=c[i][j]+(a[i][k]*b[k][j]);
+            }
+        }
+    }
+    printf("Multiplication of two matrix is \n");
+    for(i=0;i<row;i++)
+    {
+        for(j=0;j<col;j++)
+        {
+            printf("%d  ",c[i][j]);
+        }
+        printf("\n");
+    }
+}
